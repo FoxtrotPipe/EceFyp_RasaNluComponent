@@ -1,0 +1,36 @@
+version: "3.1"
+
+intents:
+  - select_unit:
+      use_entities:
+        - unit
+  - cancel_select_unit:
+      use_entities:
+        - unit
+  - move_to:
+      use_entities: 
+        - unit
+        - building
+        - location
+  - attack:
+      use_entities:
+        - unit
+        - building
+        - location
+  - build_structure:
+      use_entities:
+        - building
+        - location
+  - gather_resources:
+      use_entities:
+        - location
+  - upgrade_unit:
+      use_entities:
+        - unit
+  - research_technology:
+      use_entities: []
+
+entities:
+  - unit
+  - location
+  - building

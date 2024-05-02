@@ -1,0 +1,85 @@
+version: "3.1"
+nlu:
+- intent: cancel_select_unit
+  examples: |
+    - Deselect all units in range
+    - Unselect all units
+    - Undo unit selection
+    - Deselect all air units
+    - Remove selected fighters
+- intent: upgrade_unit
+  examples: |
+    - Upgrade heroes
+    - Improve experimental units
+    - Improve ships
+    - Improve special units
+    - Enhance bombers
+- intent: research_technology
+  examples: |
+    - Research new unit types
+    - Develop enhanced abilities
+    - Develop advanced weaponry
+    - Research faster movement
+    - Study advanced tactics
+- intent: select_unit
+  examples: |
+    - Choose all units with full health
+    - Highlight infantry
+    - Pick all archers
+    - Pick all naval units
+    - Get all workers
+    - Select all damaged units
+- intent: gather_resources
+  examples: |
+    - Gather stone
+    - Collect fusion material
+    - Gather geothermal energy
+    - Gather alien resources
+    - Harvest organic material
+- intent: build_structure
+  examples: |
+    - Build a gate
+    - Set up a [cannon](building) here
+    - Construct a missile silo
+    - Build a market
+    - Construct a research facility
+- intent: move_to
+  examples: |
+    - Travel to the front lines
+    - Head to the designated area
+    - Move [division 1](unit) to the next grid
+    - Move to [camp]{"entity": "building", "value": "campfire"}
+    - Move to the north
+    - Move to the resource area
+- intent: attack
+  examples: |
+    - Attack the enemy's flanks
+    - Assualt the enemy at [a0](location)
+    - Destroy the enemy's production facilities
+    - Engage the enemy's main force
+    - Destroy the enemy's support units
+- synonym: campfire
+  examples: |
+    - camp
+    - campfire
+- synonym: base
+  examples: |
+    - base
+- synonym: cannon
+  examples: |
+    - cannon
+    - canon
+- regex: location
+  examples: |
+    - \b[a-z]\d{1,2}\b
+- regex: unit
+  examples: |
+    - \b(div|divi|divii|divis|division)\s*\d{1,2}\b
+    - all\s*(unit(s)?)?
+- lookup: building
+  examples: |
+    - base
+    - cannon
+    - canon
+    - campfire
+    - camp

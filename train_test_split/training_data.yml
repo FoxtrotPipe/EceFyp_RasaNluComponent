@@ -1,0 +1,211 @@
+version: "3.1"
+nlu:
+- intent: cancel_select_unit
+  examples: |
+    - Deselect all idle workers
+    - Undo selection of damaged units
+    - Cancel naval unit selection
+    - Remove unit selection
+    - Unselect all ground units
+    - Clear selected units without upgrades
+    - Cancel selection of upgraded units
+    - Remove group selection
+    - Unselect all units with full health
+    - Remove selection of units with special ability
+    - Clear selected support units
+    - Cancel worker selection
+    - Clear selected units
+    - Clear selected infantry
+    - Unselect all archers
+    - Undo tank selection
+    - Deselect units
+    - Deselect soldiers
+    - Undo selection of units in the area
+    - Cancel unit selection
+- intent: upgrade_unit
+  examples: |
+    - Improve stealth units
+    - Upgrade satellites
+    - Enhance elite units
+    - Enhance support units
+    - Improve infantry
+    - Enhance medics
+    - Enhance archers
+    - Enhance drones
+    - Enhance transports
+    - Upgrade soldiers
+    - Upgrade submarines
+    - Upgrade fighters
+    - Upgrade artillery
+    - Upgrade heavy units
+    - Improve workers
+    - Improve scouts
+    - Improve space units
+    - Upgrade unit abilities
+    - Upgrade tanks
+    - Enhance engineers
+- intent: research_technology
+  examples: |
+    - Study new armor
+    - Develop better resource gathering
+    - Develop teleportation
+    - Study new defense systems
+    - Research genetic engineering
+    - Study improved healing
+    - Develop faster production
+    - Study advanced materials
+    - Research new technology
+    - Research terraforming
+    - Study time manipulation
+    - Develop cybernetics
+    - Develop advanced AI
+    - Study nanotechnology
+    - Develop new energy sources
+    - Study improved construction
+    - Research space travel
+    - Research better communication
+    - Research stealth technology
+    - Research dark energy
+- intent: select_unit
+  examples: |
+    - Choose all air units
+    - Choose all units in this area
+    - Choose all units of type X
+    - Select group 1
+    - Select units in [division 1](unit)
+    - Select all ground units
+    - Select all units in this region
+    - Pick all idle workers
+    - Select all units
+    - Select all units on screen
+    - Grab all nearby units
+    - Choose these soldiers
+    - Choose all units of the same type
+    - Pick all units with special ability
+    - Pick all units in range
+    - Select all units with low health
+    - Choose all units in the vicinity
+    - Pick the tanks
+    - Choose all units without upgrades
+    - Select all fighters
+- intent: gather_resources
+  examples: |
+    - Collect oil
+    - Mine gold
+    - Mine coal
+    - Harvest food
+    - Harvest wind power
+    - Mine rare resources
+    - Mine the gold in [a0](location)
+    - Collect wood
+    - Mine uranium
+    - Mine minerals
+    - Harvest energy
+    - Gather water
+    - Collect solar power
+    - Gather dark matter
+    - Mine asteroids
+    - Harvest interstellar gas
+    - Gather resources
+    - Collect metal
+    - Harvest gas
+    - Collect space minerals
+    - Gather crystals
+- intent: build_structure
+  examples: |
+    - Create a wall
+    - Create a training facility
+    - Construct a housing unit
+    - Create a repair station
+    - Build a camp in [a0](location)
+    - Create an airfield
+    - Build a barracks
+    - Construct a refinery
+    - Construct a power plant
+    - Build a resource center
+    - Build a mining facility
+    - Construct a hospital
+    - Build a command center
+    - Build a radar station
+    - Construct a factory
+    - Create a defense structure
+    - Construct a spaceport
+    - Create a tower
+    - Build a production facility
+    - Create a farm
+    - Create a storage facility
+    - Build a naval base
+- intent: move_to
+  examples: |
+    - Head to the safe zone
+    - Move to the ally base
+    - Head to the neutral zone
+    - Go to the enemy base
+    - Travel to the closest resource
+    - Travel to the gathering point
+    - Head to the enemy territory
+    - Go to coordinates X and Y
+    - Move to the marked location
+    - Travel to the waypoint
+    - Proceed to the rally point
+    - Head to the nearest structure
+    - Move to the center of the map
+    - Go to the top right corner
+    - Move to the nearest ally unit
+    - Travel to the closest enemy unit
+    - Move to the defense line
+    - Go to the choke point
+    - Move to the high ground
+    - Go to area [a0](location)
+    - Go to the base
+    - Move to the bottom left corner
+- intent: attack
+  examples: |
+    - Destroy the enemy structure
+    - Attack the enemy's weak points
+    - Engage the enemy's center
+    - Engage the enemy units
+    - Charge at the hostile [base](building)
+    - Attack the enemy's high priority target
+    - Engage the enemy's artillery
+    - Attack the enemy's naval units
+    - Engage the enemy's low health units
+    - Attack the enemy's rear units
+    - Destroy the enemy's ground units
+    - Attack the enemy's research center
+    - Engage the enemy's air units
+    - Attack the enemy base
+    - Destroy the enemy defenses
+    - Engage the closest enemy building
+    - Attack the enemy resource gatherers
+    - Focus fire on the target
+    - Engage the enemy's strong points
+    - Attack the nearest enemy
+    - Destroy the enemy's reinforcements
+    - Destroy the enemy's upgraded units
+    - [division 1](unit) attack the hostile in front
+- synonym: campfire
+  examples: |
+    - camp
+    - campfire
+- synonym: base
+  examples: |
+    - base
+- synonym: cannon
+  examples: |
+    - cannon
+    - canon
+- regex: location
+  examples: |
+    - \b[a-z]\d{1,2}\b
+- regex: unit
+  examples: |
+    - \b(div|divi|divii|divis|division)\s*\d{1,2}\b
+    - all\s*(unit(s)?)?
+- lookup: building
+  examples: |
+    - base
+    - cannon
+    - canon
+    - campfire
+    - camp

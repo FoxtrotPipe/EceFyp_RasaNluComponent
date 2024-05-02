@@ -1,0 +1,760 @@
+version: "3.1"
+
+# Dataset composition
+# For each intent:
+#   1. 25 example utterances
+#   2. at least 1 example utterance per entity
+
+# select_unit: 58
+# cancel_select_unit: 81
+# move_to: 73
+# attack: 128
+# build_structure: 83
+# gather_resource: 68
+# upgrade_unit: 125
+# research_technology: 61
+
+nlu:
+- intent: select_unit
+  examples: |
+    - Select all units
+    - Choose these soldiers
+    - Pick all archers
+    - Select group 1
+    - Choose all units in this area
+    - Highlight infantry
+    - Get all workers
+    - Select all fighters
+    - Pick the tanks
+    - Choose all units of type X
+    - Select all units in this region
+    - Grab all nearby units
+    - Choose all units in the vicinity
+    - Pick all units in range
+    - Select all units on screen
+    - Choose all air units
+    - Select all ground units
+    - Pick all naval units
+    - Choose all units of the same type
+    - Select all units with low health
+    - Pick all idle workers
+    - Choose all units with full health
+    - Select all damaged units
+    - Pick all units with special ability
+    - Choose all units without upgrades
+    - Select units in [division 1](unit)
+    - pick unit
+    - Pick all unit
+    - pick worker
+    - pick one of the engineer
+    - pick two units
+    - pick all guys
+    - take one striker
+    - take all stroker
+    - take firefighter
+    - take architect 
+    - take nearest troop
+    - take one engineer
+    - Select squad
+    - Choose every member
+    - Handpick laborer
+    - Single out an engineer
+    - Cherry-pick two individuals
+    - Opt for all team members
+    - Pick any personnel
+    - Select a group of soldiers
+    - Choose the entire crew
+    - Handpick a technician
+    - Single out two troops
+    - Cherry-pick all individuals
+    - Opt for every worker
+    - Select a specialized operative
+    - Choose multiple units
+    - Handpick the entire team
+    - Single out a skilled laborer
+    - Cherry-pick a pair of soldiers
+    - Opt for all available personnel
+    - Select each member of the group
+
+- intent: cancel_select_unit
+  examples: |
+    - Deselect units
+    - Unselect all units
+    - Cancel unit selection
+    - Remove unit selection
+    - Clear selected units
+    - Undo unit selection
+    - Deselect soldiers
+    - Unselect all archers
+    - Cancel worker selection
+    - Remove group selection
+    - Clear selected infantry
+    - Undo tank selection
+    - Deselect all air units
+    - Unselect all ground units
+    - Cancel naval unit selection
+    - Remove selected fighters
+    - Clear selected support units
+    - Undo selection of damaged units
+    - Deselect all idle workers
+    - Unselect all units with full health
+    - Cancel selection of upgraded units
+    - Remove selection of units with special ability
+    - Clear selected units without upgrades
+    - Undo selection of units in the area
+    - Deselect all units in range
+    - cancel selected unit
+    - Cancel all
+    - Cancel striker
+    - Cancel attecker
+    - Cancel aggressive unit
+    - Cancel the firepower
+    - Cancel all consturctor
+    - Cancel all miner
+    - Cancel div
+    - Cancel figther
+    - Cancel our squad
+    - Remove the unit selection
+    - Remove all selection
+    - Remove unit preference
+    - Remove attack unit
+    - Remove engineer
+    - Remove option
+    - Remove selected number
+    - Remove the troops
+    - Remove collection
+    - Remove all pick
+    - Abort the active task
+    - Abort current teams
+    - Abort all military  
+    - Abort whole selection
+    - Abort constructor
+    - deselect candidate 
+    - deselect all nominee 
+    - deselect the solider 
+    - deselect assailant
+    - deselect all power
+    - deselect chosen unit
+    - deselect appointed
+    - deselect all pick out
+    - deselect construct unit
+    - reset all picked unit
+    - Reset current chosen unit
+    - Reset unit picks
+    - Reset initial state
+    - Reset attacker
+    - Reset picking of all units
+    - dismiss nomination
+    - dismiss attack unit
+    - dismiss strike unit
+    - dismiss selected items
+    - dismiss selected option
+    - dismiss all squad
+    - drop the strike unit choice
+    - drop the constructor unit 
+    - drop engineer
+    - drop the constructor unit 
+    - drop all picked units.
+    - drop candidate
+    - drop chosen unit
+    - drop chosen squad
+    - drop selected guys
+
+
+- intent: move_to
+  examples: |
+    - Move to the north
+    - Go to the base
+    - Head to the enemy territory
+    - Move to the resource area
+    - Travel to the waypoint
+    - Proceed to the rally point
+    - Go to coordinates X and Y
+    - Move to the marked location
+    - Head to the designated area
+    - Travel to the gathering point
+    - Move to the center of the map
+    - Go to the top right corner
+    - Move to the bottom left corner
+    - Head to the nearest structure
+    - Travel to the closest resource
+    - Move to the ally base
+    - Go to the enemy base
+    - Head to the neutral zone
+    - Move to the defense line
+    - Travel to the front lines
+    - Move to the high ground
+    - Go to the choke point
+    - Head to the safe zone
+    - Move to the nearest ally unit
+    - Travel to the closest enemy unit
+    - Go to area [a0](location)
+    - Move to [camp]{"entity": "building", "value": "campfire"}
+    - Move [division 1](unit) to the next grid
+    - Move to enemy position
+    - Move to enemy area
+    - Move to resource
+    - Move to closest wood 
+    - Move to our campfire
+    - Move to our cannon
+    - Move to enemy campfire
+    - Move to enemy base
+    - Move to rival's zone
+    - Move to enemy domain
+    - Shift next to our engineer unit
+    - Shift to enemy place
+    - Shift to left side of enemy base
+    - Shift to right side of enemy base
+    - Shift to front of enemy tower
+    - Shift to near gold area
+    - Shift to enemy region
+    - Shift to enemy construction
+    - Shift to adversary emplacement
+    - Shift next to our unit
+    - make a move to left of our attack unit
+    - make a move to left of enemy attack unit
+    - make a move to right of our engineer
+    - make a move to right of rival's engineer
+    - make a move to resource realm
+    - Walk next to direction of enemy
+    - Walk to opposition building 
+    - Walk to opposition point 
+    - Walk to rival's location
+    - Walk to where the enemy
+    - Walk to our campfire left
+    - Walk to in fornt of our campfire 
+    - Walk next to our engineer 
+    - Walk alongside engineer 
+    - Walk alongside our troop 
+    - Go to enemy base
+    - Go to enemy battalion
+    - Go to the rival zone
+    - Go to wood zone
+    - Go to adversary emplacement
+    - Go to adversary city
+    - Go to adversary town
+    - Go to enemy metropolis
+    - Go to adversary county town
+    - Go to adversary region
+
+
+- intent: attack
+  examples: |
+    - Attack the enemy base
+    - Engage the enemy units
+    - Destroy the enemy structure
+    - Focus fire on the target
+    - Attack the nearest enemy
+    - Engage the closest enemy building
+    - Destroy the enemy defenses
+    - Attack the enemy resource gatherers
+    - Engage the enemy's main force
+    - Attack the enemy's rear units
+    - Destroy the enemy's production facilities
+    - Attack the enemy's research center
+    - Engage the enemy's air units
+    - Destroy the enemy's ground units
+    - Attack the enemy's naval units
+    - Engage the enemy's artillery
+    - Destroy the enemy's support units
+    - Attack the enemy's high priority target
+    - Engage the enemy's low health units
+    - Destroy the enemy's upgraded units
+    - Attack the enemy's weak points
+    - Engage the enemy's strong points
+    - Destroy the enemy's reinforcements
+    - Attack the enemy's flanks
+    - Engage the enemy's center
+    - Assualt the enemy at [a0](location)
+    - Charge at the hostile [base]{"entity": "building", "value": "base"}
+    - [division 1](unit) attack the hostile in front
+    - Engage the foe
+    - Engage the enemy
+    - Engage the opposition
+    - Engage the enemy defenses
+    - Engage enemy squad
+    - Engage the rival's positions
+    - Engage enemy gang
+    - Engage foe team
+    - Engage opposite troops
+    - Engage enemy guard
+    - eliminate foe base
+    - eliminate adversary tower
+    - eliminate adversary building
+    - eliminate challenger structure
+    - eliminate foe place
+    - eliminate enemy property
+    - eliminate enemy troops
+    - eliminate rival construction
+    - eliminate competitor
+    - eliminate the opponent
+    - knockout adversary emplacements
+    - knockout foe forward position
+    - knockout the red unit
+    - knockout the enemy place 
+    - Knock out the enemy wherever they are
+    - strike defense positions
+    - strike defensive line
+    - strike enemy division 
+    - strike enemy campfire
+    - strike rival force
+    - strike hostile division
+    - strike opposing troops
+    - strike against the opposition
+    - strike enemy squad
+    - strike foe battalion
+    - target the adversary's division
+    - target the hostile battalion
+    - target enemy closest position
+    - target rival base
+    - target adversary tower
+    - ravage the gang
+    - ravage the enemy division
+    - ravage the enemy troops
+    - ravage hostile division
+    - ravage enemy squad
+    - break rival formation
+    - Break enemy's defense line
+    - Break the enemy's frontlines
+    - Break enemy coordination
+    - Break adversary supply chain
+    - Break enemy's barricades
+    - Break through their obstacles
+    - Break their line of defense
+    - Break through their obstacles
+    - Break down their campfire
+    - Assault opposing soldiers
+    - Assault enemy home
+    - Assault rival emplacement
+    - Assault opposing army
+    - Assault the crowd
+    - Assault the enemy company
+    - Assault enemy bastion
+    - Assault rival soldiers
+    - Assault adversary's forces
+    - Assault enemy building
+    - Hit the enemy stronghold
+    - Hit the enemy artillery
+    - Hit the moving enemy
+    - Hit enemy engineer
+    - Hit the nearest rivals
+    - Hit the enemy zone
+    - hit adversary castle
+    - Hit enemy fortress
+    - Hit the enemy teams
+    - Hit enemy bunker
+    - Beat the enemy emplacements
+    - Beat enemy hotbed
+    - Beat red unit 
+    - Beat the enemy company
+    - Beat the enemy minefields
+    - Beat the enemy forces
+    - Beat up the guards
+    - Beat up the shooting people
+    - Beat the enemy battalion
+    - Beat the enemy ambush
+    - Ambush the enemy patrol
+    - Ambush the advancing troops
+    - Ambush the enemy knights
+    - Ambush the mining team
+    - Ambush the moving squad
+    - Ambush the enemy city
+    - Breach the enemy fortress walls
+    - Breach the enemy shield 
+    - Breach rival supply lines
+    - Breach rival formation
+    - Initiate an assault on enemy home
+    - Initiate attack on the enemy positions
+    - Initiate an strike against the enemy forces
+    - Initiate a coordinated assault to overwhelm the enemy
+    - Initiate a counterattack to regain lost ground
+
+
+- intent: build_structure
+  examples: |
+    - Build a barracks
+    - Construct a factory
+    - Create a tower
+    - Build a resource center
+    - Construct a research facility
+    - Create a defense structure
+    - Build a production facility
+    - Construct a housing unit
+    - Create a wall
+    - Build a gate
+    - Construct a power plant
+    - Create a storage facility
+    - Build a command center
+    - Construct a hospital
+    - Create a repair station
+    - Build a radar station
+    - Construct a missile silo
+    - Create an airfield
+    - Build a naval base
+    - Construct a spaceport
+    - Create a training facility
+    - Build a mining facility
+    - Construct a refinery
+    - Create a farm
+    - Build a market
+    - Build a camp in [a0](location)
+    - Set up a [cannon]{"entity": "building", "value": "cannon"} here
+    - Build campfire
+    - Build cannon
+    - Build tent 
+    - Build encampment
+    - Build campground
+    - Build tepee
+    - Build shack
+    - Build cottage
+    - Build bivouac
+    - Build camping ground
+    - Construct fire pit
+    - Construct heavy gun
+    - Construct war cannon
+    - Construct field gun
+    - Construct siege cannon
+    - Construct gunpowder weapon
+    - Construct artillery piece
+    - Construct bombard
+    - Construct coastal cannon
+    - Construct battle cannon
+    - set up cannon weapon system
+    - set up campsite area
+    - set up temp settlement
+    - set up tent city
+    - set up base camp
+    - set up field outpost
+    - set up garrison camp
+    - set up canvas shelter
+    - set up portable dwelling
+    - set up outdoor camp
+    - set up tempo structure
+    - set up a shelter
+    - set up field bivouac
+    - set up wilderness camp
+    - set up unit shelter
+    - Establish field bivouac site
+    - Establish solider resting place
+    - Establish unit resting bivouac
+    - Establisht transient camp
+    - Establish encampment
+    - Establish attacker encampment
+    - Establish a healing camp
+    - Establish resting tower
+    - Establish healing place
+    - Establish healing outpost
+    - Establish healingc site
+    - Make a big gun
+    - Make a launcher
+    - Make a defense cannon
+    - Make a big artillery
+    - Make a big gun
+    - Make field artillery
+    - Make war cannon
+    - Make a projected ordnance
+    - Make gun platform
+    - Make a heavy ordnance
+
+
+- intent: gather_resources
+  examples: |
+    - Gather resources
+    - Collect wood
+    - Mine gold
+    - Harvest food
+    - Gather stone
+    - Collect metal
+    - Mine minerals
+    - Harvest energy
+    - Gather crystals
+    - Collect oil
+    - Mine coal
+    - Harvest gas
+    - Gather water
+    - Collect solar power
+    - Mine uranium
+    - Harvest wind power
+    - Gather geothermal energy
+    - Collect fusion material
+    - Mine rare resources
+    - Harvest organic material
+    - Gather alien resources
+    - Collect space minerals
+    - Mine asteroids
+    - Harvest interstellar gas
+    - Gather dark matter
+    - Mine the gold in [a0](location)
+    - Gather element
+    - Gather metal
+    - Gather treasure
+    - Gather nugget
+    - Gather alloy
+    - Gather golden resource
+    - Gather natural resource
+    - Gather gold substance
+    - Gather mineral 
+    - Gather mineral source
+    - Collect mineral treasure
+    - Collect mineral material
+    - Collect timber material
+    - Collect wooden lumber
+    - Collect wood substance
+    - Collect timbered resource
+    - Collect arboreal resource
+    - Collect woody material
+    - Collectl lumbered thing
+    - Collect tree-based substance
+    - Get stone
+    - Get rock material
+    - Get rock mineral
+    - Get pebble stone
+    - Get productive capital
+    - Get power source
+    - Get thermal power
+    - Get crystal 
+    - Get gemstone 
+    - Get crystalized minerals
+    - Get crystal item
+    - Get heavy metals
+    - Get matel sub
+    - Get gold substances
+    - Get metals
+    - Amass woody plant
+    - Amass leafy items
+    - Amassf forest resource
+    - Amass woody organism
+    - Amass plant
+    - Amass woody species
+    - Amass timber resource
+    - Amass diamond
+
+
+- intent: upgrade_unit
+  examples: |
+    - Upgrade soldiers
+    - Enhance archers
+    - Improve workers
+    - Upgrade tanks
+    - Enhance engineers
+    - Improve infantry
+    - Upgrade artillery
+    - Enhance medics
+    - Improve scouts
+    - Upgrade fighters
+    - Enhance bombers
+    - Improve ships
+    - Upgrade submarines
+    - Enhance transports
+    - Improve space units
+    - Upgrade satellites
+    - Enhance drones
+    - Improve special units
+    - Upgrade heroes
+    - Enhance elite units
+    - Improve stealth units
+    - Upgrade heavy units
+    - Enhance support units
+    - Improve experimental units
+    - Upgrade unit abilities
+    - Upgrade solider
+    - Upgrade military 
+    - Upgrade attacker
+    - Upgrade strike unit
+    - Upgrade combat troops
+    - Upgrade forces members
+    - Upgrade troop 
+    - Upgrade combatants
+    - Upgrade heroes
+    - Upgrade defenders
+    - Promote engineering prof 
+    - Promote architect
+    - Promote civil engineer 
+    - Promote structural engineer 
+    - Promote construction specialist 
+    - Promote constructor
+    - Promote worker
+    - Promote site developer
+    - Promote builder
+    - Promote tower builder
+    - Improve cannon constructor
+    - Improve mining worker
+    - Improve mineral extractor
+    - Improve campfire developer
+    - Improve coal miner
+    - Improve campfire developer
+    - Improve pit worker
+    - Improve gold digger
+    - Improve diamond driller
+    - Improve gold miner
+    - Improve laborer
+    - Improve resource extractor
+    - Improve mineral prospector
+    - Improve campfire developer
+    - Improve campfire developer
+    - cultivate attack 
+    - cultivate protector 
+    - cultivate striker 
+    - cultivate miner 
+    - cultivate engineer 
+    - Level up warrior
+    - Level up warfare expert
+    - Level up defender
+    - Level up striking people
+    - Level up attacking ppl
+    - Level up military 
+    - Level up armed infantryman
+    - Level up rifle warrior
+    - Level up trooper
+    - Level up rifleman
+    - Level up military marksman
+    - Level up firearm user
+    - Level up offensive unit
+    - Level up Strike division
+    - Level up assault division
+    - Level up assault team
+    - Enchance offensive company
+    - Enchance attack force
+    - Enchance offensive party
+    - Enchance attacking brigade
+    - Enchance structural worker
+    - Enchance resource engineer
+    - Enchance building engineer
+    - Enchance harvester
+    - Enchance resource harvester
+    - Reinforce solider
+    - Reinforce stirker 
+    - Reinforce front attacker 
+    - Reinforce  front-line striker 
+    - Reinforce frontman 
+    - Reinforce poacher 
+    - Reinforce military 
+    - Reinforce attacking threat 
+    - Reinforce attacker damage 
+    - Reinforce stirker strength
+    - Strengthen armed defender
+    - Strengthen bearing trooper
+    - Strengthen armed defender
+    - Strengthen armed combatant
+    - Strengthen armed defender
+    - Strengthen uniform solider
+    - Strengthen all striker
+    - Strengthen troop member
+    - Strengthen troop's weapon
+    - Strengthen solider's force
+    - Intensify warfighter
+    - Intensify our solider to be veteran
+    - Intensify attacking team
+    - Intensify attacking guy
+    - Intensify current front people
+    - Intensify outside striker
+    - Intensify the force of attacker
+    - Intensify military warrior
+    - Intensify defending warrior
+    - Intensify safeguard people
+    - Intensify protecting team
+    - Intensify protecting guys
+    - Intensify home guard
+    - Intensify conservator
+    - Intensify gatekeeper
+
+
+- intent: research_technology
+  examples: |
+    - Research new technology
+    - Develop advanced weaponry
+    - Study new armor
+    - Research faster movement
+    - Develop better resource gathering
+    - Study improved construction
+    - Research new unit types
+    - Develop enhanced abilities
+    - Study advanced tactics
+    - Research better communication
+    - Develop new energy sources
+    - Study advanced materials
+    - Research space travel
+    - Develop faster production
+    - Study improved healing
+    - Research stealth technology
+    - Develop advanced AI
+    - Study new defense systems
+    - Research terraforming
+    - Develop teleportation
+    - Study time manipulation
+    - Research genetic engineering
+    - Develop cybernetics
+    - Study nanotechnology
+    - Research dark energy
+    - Research new tech
+    - Research new formation
+    - Research new tactic
+    - Research new plan
+    - Research new set of tactics
+    - Research new trick
+    - Research new stratagem
+    - Research new skill
+    - Research new ability
+    - Research new capability
+    - Develop latest tech
+    - Develop latest approach
+    - Develop battle plan
+    - Develop operational technique
+    - Develop combat strategy
+    - Develop method of attack
+    - Develop action plan
+    - Develop defensive strategy
+    - Develop tactical deployment
+    - Develop strategic move
+    - Develop war scheme
+    - Study defensive approach
+    - Study battle tactic
+    - Study war tactic
+    - Study tactical plan
+    - Study attacking approach
+    - Study strategic approach
+    -  Study new methodology
+    - Study grand strategy
+    - Study attacking roadmap
+    - Study master plan
+    - Study short-term approach
+    - Study positioning plan 
+    - Study war preparation
+    - Study action plan
+    -  Study defensive arrangement
+
+
+- regex: unit
+  examples: |
+    - \b(div|divi|divii|divis|division)\s*\d{1,2}\b
+    - all\s*(unit(s)?)?
+
+- regex: location
+  examples: |
+    - \b[a-z]\d{1,2}\b
+
+- lookup: building
+  examples: |
+    - base
+    - motherbase
+    - house
+    - cannon
+    - canon
+    - campfire
+    - camp
+
+- synonym: base
+  examples: |
+    - base
+    - motherbase
+    - house
+
+- synonym: cannon
+  examples: |
+    - cannon
+    - canon
+
+- synonym: campfire
+  examples: |
+    - campfire
+    - camp
